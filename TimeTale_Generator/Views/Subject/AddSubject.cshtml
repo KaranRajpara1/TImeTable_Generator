@@ -1,0 +1,109 @@
+﻿@model TimeTale_Generator.tbl_subject
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add Subject</title>
+    <script src="~/Content/jquery-3.6.0.min.js"></script>
+    <script src="~/Content/Toaster/toastr.min.js"></script>
+    <link href="~/Content/Toaster/toastr.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>tbl_subject</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.SUBJECT_NAME, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SUBJECT_NAME, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SUBJECT_NAME, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SUBJECT_CODE, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SUBJECT_CODE, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SUBJECT_CODE, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.COURSE_TYPE, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.COURSE_TYPE, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.COURSE_TYPE, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+            <div class="form-group">
+                @Html.LabelFor(model => model.COURSE_TYPE, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <select class="form-control" id="COURSE_TYPE" name="COURSE_TYPE">
+
+                        <option>Theory</option>
+                        <option>Lab</option>
+                        <option>Theory + Lab</option>
+                    </select>
+                    @Html.ValidationMessageFor(model => model.COURSE_TYPE, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SUBJECT_CREDIT, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SUBJECT_CREDIT, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SUBJECT_CREDIT, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SEMESTER, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SEMESTER, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SEMESTER, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Next" class="btn btn-default" id="btn_addSubject" onclick="addSubject();"/>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+            @Html.ActionLink("Go to List", "Index")
+        </div>
+
+
+    <script>
+        $(document).ready(function () {
+            toastr.info('If all three of these are referenced correctly, then this should toast should pop-up.');
+        })
+        function addSubject()
+        {
+            var sName = $("#SUBJECT_NAME").val();
+            var sCode = $("#SUBJECT_CODE").val();
+            var cType = $("#COURSE_TYPE").val();
+            var sCredit = $("#SUBJECT_CREDIT").val();
+            var sem = $("#SEMESTER").val();
+           
+
+            if (!sName || !sCode || !cType || !sCredit|| !sem ) {
+                toastr.error("Please enter all field values");
+            }
+
+          
+
+            
+        }
+    </script>
+</body>
+</html>

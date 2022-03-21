@@ -1,0 +1,45 @@
+﻿@model IEnumerable<TimeTale_Generator.tbl_lab>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ISLAB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LAB_TYPE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ADDITIONAL_DETAILS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LOCATION)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ISLAB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LAB_TYPE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADDITIONAL_DETAILS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LOCATION)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

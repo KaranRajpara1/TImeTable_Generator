@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TimeTable_GeneratorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_faculty">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MOBILE_NO" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="DESIGNATION" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ALIAS" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="TimeTable_GeneratorEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_faculty" EntityType="Self.tbl_faculty" />
+    <EntitySet Name="tbl_lab" EntityType="TimeTable_GeneratorModel.tbl_lab" />
+    <EntitySet Name="tbl_subject" EntityType="TimeTable_GeneratorModel.tbl_subject" />
+  </EntityContainer>
+  <EntityType Name="tbl_lab">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ISLAB" Type="Boolean" />
+    <Property Name="LAB_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ADDITIONAL_DETAILS" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="LOCATION" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_subject">
+    <Key>
+      <PropertyRef Name="SUBJECT_CODE" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SUBJECT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SUBJECT_CODE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="COURSE_TYPE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="SUBJECT_CREDIT" Type="Int32" />
+    <Property Name="SEMESTER" Type="Int32" />
+  </EntityType>
+</Schema>

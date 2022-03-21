@@ -1,0 +1,51 @@
+﻿@model IEnumerable<TimeTale_Generator.tbl_subject>
+
+<p>
+    @Html.ActionLink("Create New", "AddSubject")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SUBJECT_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SUBJECT_CODE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COURSE_TYPE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SUBJECT_CREDIT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SEMESTER)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SUBJECT_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SUBJECT_CODE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COURSE_TYPE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SUBJECT_CREDIT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SEMESTER)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TimeTable_GeneratorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_faculty">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="100" />
+    <Property Name="PASSWORD" Type="nvarchar" MaxLength="50" />
+    <Property Name="MOBILE_NO" Type="nvarchar" MaxLength="15" />
+    <Property Name="DESIGNATION" Type="nvarchar" MaxLength="15" />
+    <Property Name="ALIAS" Type="nvarchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="tbl_lab">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LOCATION" Type="nvarchar" MaxLength="10" />
+    <Property Name="ISLAB" Type="bit" />
+    <Property Name="LAB_TYPE" Type="nvarchar" MaxLength="50" />
+    <Property Name="ADDITIONAL_DETAILS" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="tbl_subject">
+    <Key>
+      <PropertyRef Name="SUBJECT_CODE" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SUBJECT_NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="SUBJECT_CODE" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="COURSE_TYPE" Type="nvarchar" MaxLength="10" />
+    <Property Name="SUBJECT_CREDIT" Type="int" />
+    <Property Name="SEMESTER" Type="int" />
+  </EntityType>
+  <EntityContainer Name="TimeTable_GeneratorModelStoreContainer">
+    <EntitySet Name="tbl_faculty" EntityType="Self.tbl_faculty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_lab" EntityType="Self.tbl_lab" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_subject" EntityType="Self.tbl_subject" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

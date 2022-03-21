@@ -1,0 +1,44 @@
+﻿@model TimeTale_Generator.tbl_lab
+
+<div>
+    <h4>tbl_lab</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ISLAB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISLAB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LAB_TYPE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LAB_TYPE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ADDITIONAL_DETAILS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ADDITIONAL_DETAILS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LOCATION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOCATION)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
