@@ -96,6 +96,7 @@ namespace TimeTale_Generator.Controllers
             }
             catch
             {
+                ViewBag.errorMsg = "Invalid Data Entered";
                 return View();
             }
         }

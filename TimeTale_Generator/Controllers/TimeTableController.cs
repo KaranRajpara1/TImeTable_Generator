@@ -65,8 +65,16 @@ namespace TimeTale_Generator.Controllers
         [HttpPost]
         public ActionResult Index(int Sem)
         {
-            int total_subject = 8;
+            
+            //int total_subject = 8;
             int i, j;
+            for(i = 0; i < 6; i++)
+            {
+                for(j = 0; j < 5; j++)
+                {
+                    arr[i, j] = "Library";
+                }
+            }
             ArrayList a = new ArrayList();
 
             //for (i = 0; i < total_subject; i++)
@@ -231,6 +239,7 @@ namespace TimeTale_Generator.Controllers
         public ActionResult Generated()
         {
             if (!IsValidUser()) return RedirectToAction("Login", "Security");
+          
             ViewBag.TT = arr;
             return View();
         }

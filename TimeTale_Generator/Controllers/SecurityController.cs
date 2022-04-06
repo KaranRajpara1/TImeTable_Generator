@@ -157,5 +157,11 @@ namespace TimeTale_Generator.Controllers
             
             return RedirectToAction("Index", "Home");
         }
+
+        public ActionResult Logout()
+        {
+            Session["ID"] = null;
+            return RedirectToAction("Login");
+        }
     }
 }

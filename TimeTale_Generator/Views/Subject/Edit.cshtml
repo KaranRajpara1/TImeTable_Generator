@@ -8,6 +8,7 @@
 
 </head>
 <body>
+    <p class="Error"> @ViewBag.errorMsg </p>
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -58,7 +59,7 @@
                             Value = "Thoery + Lab"
                         });
                     }
-                    @Html.DropDownListFor(model => model.COURSE_TYPE, listItems, "-- Select --", htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownListFor(model => model.COURSE_TYPE, listItems, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.COURSE_TYPE, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -92,7 +93,7 @@
 
 
                         @*working*@
-                        @Html.DropDownListFor(m => m.THEORY_FACULTY, (IEnumerable<SelectListItem>)ViewData["Faculty_Name"], "-- Select --", htmlAttributes: new { @class = "form-control" })
+                        @Html.DropDownListFor(m => m.THEORY_FACULTY, (IEnumerable<SelectListItem>)ViewData["Faculty_Name"], htmlAttributes: new { @class = "form-control" })
 
 
 
@@ -105,7 +106,7 @@
                     @Html.LabelFor(model => model.THEORY_CLASS_LOCATION, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @*@Html.EditorFor(model => model.THEORY_CLASS_LOCATION, new { htmlAttributes = new { @class = "form-control" } })*@
-                        @Html.DropDownListFor(m => m.THEORY_CLASS_LOCATION, (IEnumerable<SelectListItem>)ViewData["Lab_Location"], "-- Select --", htmlAttributes: new { @class = "form-control" })
+                        @Html.DropDownListFor(m => m.THEORY_CLASS_LOCATION, (IEnumerable<SelectListItem>)ViewData["Lab_Location"],  htmlAttributes: new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.THEORY_CLASS_LOCATION, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -126,7 +127,7 @@
                     <div class="col-md-10">
                         @*@Html.EditorFor(model => model.LAB_FACULTY, new { htmlAttributes = new { @class = "form-control" } })*@
 
-                        @Html.DropDownListFor(m => m.LAB_FACULTY, (IEnumerable<SelectListItem>)ViewData["Faculty_Name"], "-- Select --", htmlAttributes: new { @class = "form-control" })
+                        @Html.DropDownListFor(m => m.LAB_FACULTY, (IEnumerable<SelectListItem>)ViewData["Faculty_Name"], htmlAttributes: new { @class = "form-control" })
 
 
 
@@ -143,7 +144,7 @@
 
                         @*@Html.DropDownListFor(model => model.COURSE_TYPE, listItems, "-- Select --", htmlAttributes: new { @class = "form-control" })*@
 
-                        @Html.DropDownListFor(m =>m.LAB_LOCATION ,(IEnumerable<SelectListItem>)ViewData["Lab_Location"],  htmlAttributes: new { @class = "form-control" })
+                        @Html.DropDownListFor(m => m.LAB_LOCATION, (IEnumerable<SelectListItem>)ViewData["Lab_Location"], htmlAttributes: new { @class = "form-control" })
                         @*@Html.DropDownListFor(m => m.LAB_LOCATION, (IEnumerable<SelectListItem>)ViewData["Lab_Location"], "-- Select --", htmlAttributes: new { @class = "form-control" })*@
 
 
@@ -173,7 +174,7 @@
     </div>
     <script>
         $(document).ready(function () {
-            
+
             if ($('#COURSE_TYPE :selected').text() == "Thoery") {
                 $("#div_theory").show();
                 $("#div_lab").hide();
@@ -186,7 +187,7 @@
                 $("#div_theory").show();
                 $("#div_lab").show();
             }
-            
+
         });
         $(function () {
             $("#COURSE_TYPE").change(function () {

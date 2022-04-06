@@ -204,6 +204,7 @@
     <Content Include="Views\TimeTable\Semester.cshtml" />
     <Content Include="Views\TimeTable\Generated.cshtml" />
     <Content Include="Views\Subject\Details.cshtml" />
+    <Content Include="Views\Security\Logout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
