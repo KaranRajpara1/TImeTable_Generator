@@ -1,63 +1,214 @@
 ﻿@model TimeTale_Generator.tbl_subject
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>tbl_subject</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID)
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit Subject</title>
+    <script src="~/Content/jquery-3.6.0.min.js"></script>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.SUBJECT_NAME, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SUBJECT_NAME, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SUBJECT_NAME, "", new { @class = "text-danger" })
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>tbl_subject</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ID)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SUBJECT_NAME, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SUBJECT_NAME, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SUBJECT_NAME, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SUBJECT_CODE, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SUBJECT_CODE, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SUBJECT_CODE, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.COURSE_TYPE, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @*@Html.EditorFor(model => model.COURSE_TYPE, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @{
+                        List<SelectListItem> listItems = new List<SelectListItem>();
+
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "Thoery",
+                            Value = "Thoery"
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "Lab",
+                            Value = "Lab"
+
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "Thoery + Lab",
+                            Value = "Thoery + Lab"
+                        });
+                    }
+                    @Html.DropDownListFor(model => model.COURSE_TYPE, listItems, "-- Select --", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.COURSE_TYPE, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SUBJECT_CREDIT, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SUBJECT_CREDIT, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SUBJECT_CREDIT, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SEMESTER, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SEMESTER, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SEMESTER, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div id="div_theory">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.THEORY_FACULTY, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @*@Html.EditorFor(model => model.THEORY_FACULTY, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @*<fieldset class = "form-control">*@
+
+
+
+                        @*@Html.DropDownList("CategoryType", (IEnumerable<SelectListItem>)ViewBag.CategoryType)*@
+                        @*@Html.DropDownList("MySkills", (IEnumerable<SelectListItem>)ViewData["Faculty_Name"])*@
+
+
+                        @*working*@
+                        @Html.DropDownListFor(m => m.THEORY_FACULTY, (IEnumerable<SelectListItem>)ViewData["Faculty_Name"], "-- Select --", htmlAttributes: new { @class = "form-control" })
+
+
+
+
+                        @*</fieldset>*@
+                        @Html.ValidationMessageFor(model => model.THEORY_FACULTY, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.THEORY_CLASS_LOCATION, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @*@Html.EditorFor(model => model.THEORY_CLASS_LOCATION, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.DropDownListFor(m => m.THEORY_CLASS_LOCATION, (IEnumerable<SelectListItem>)ViewData["Lab_Location"], "-- Select --", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.THEORY_CLASS_LOCATION, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.THEORY_HOURS, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.THEORY_HOURS, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.THEORY_HOURS, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="div_lab">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LAB_FACULTY, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @*@Html.EditorFor(model => model.LAB_FACULTY, new { htmlAttributes = new { @class = "form-control" } })*@
+
+                        @Html.DropDownListFor(m => m.LAB_FACULTY, (IEnumerable<SelectListItem>)ViewData["Faculty_Name"], "-- Select --", htmlAttributes: new { @class = "form-control" })
+
+
+
+
+                        @Html.ValidationMessageFor(model => model.LAB_FACULTY, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LAB_LOCATION, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @*@Html.EditorFor(model => model.LAB_LOCATION, new { htmlAttributes = new { @class = "form-control" } })*@
+
+                        @*@Html.DropDownListFor(model => model.COURSE_TYPE, listItems, "-- Select --", htmlAttributes: new { @class = "form-control" })*@
+
+                        @Html.DropDownListFor(m =>m.LAB_LOCATION ,(IEnumerable<SelectListItem>)ViewData["Lab_Location"],  htmlAttributes: new { @class = "form-control" })
+                        @*@Html.DropDownListFor(m => m.LAB_LOCATION, (IEnumerable<SelectListItem>)ViewData["Lab_Location"], "-- Select --", htmlAttributes: new { @class = "form-control" })*@
+
+
+                        @*@Html.DropDownListFor(m => m.LAB_LOCATION, (IEnumerable<SelectListItem>)ViewData["Lab_Location"], "-- Select --", htmlAttributes: new { @class = "form-control" })*@
+                        @Html.ValidationMessageFor(model => model.LAB_LOCATION, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LAB_HOURS, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.LAB_HOURS, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LAB_HOURS, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
             </div>
         </div>
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.SUBJECT_CODE, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SUBJECT_CODE, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SUBJECT_CODE, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.COURSE_TYPE, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.COURSE_TYPE, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.COURSE_TYPE, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SUBJECT_CREDIT, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SUBJECT_CREDIT, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SUBJECT_CREDIT, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SEMESTER, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SEMESTER, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SEMESTER, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <script>
+        $(document).ready(function () {
+            
+            if ($('#COURSE_TYPE :selected').text() == "Thoery") {
+                $("#div_theory").show();
+                $("#div_lab").hide();
+            }
+            else if ($('#COURSE_TYPE :selected').text() == "Lab") {
+                $("#div_theory").hide();
+                $("#div_lab").show();
+            }
+            else {
+                $("#div_theory").show();
+                $("#div_lab").show();
+            }
+            
+        });
+        $(function () {
+            $("#COURSE_TYPE").change(function () {
+                //alert($('option:selected', this).text());
+                if ($('option:selected', this).text() == "Thoery") {
+                    $("#div_theory").show();
+                    $("#div_lab").hide();
+                }
+                else if ($('option:selected', this).text() == "Lab") {
+                    $("#div_theory").hide();
+                    $("#div_lab").show();
+                }
+                else if ($('option:selected', this).text() == "Thoery + Lab") {
+                    $("#div_theory").show();
+                    $("#div_lab").show();
+                }
+                else {
+                    $("#div_theory").hide();
+                    $("#div_lab").hide();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

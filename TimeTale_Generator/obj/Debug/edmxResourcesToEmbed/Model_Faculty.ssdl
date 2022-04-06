@@ -27,11 +27,17 @@
       <PropertyRef Name="SUBJECT_CODE" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="SUBJECT_NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="SUBJECT_NAME" Type="nvarchar(max)" Nullable="false" />
     <Property Name="SUBJECT_CODE" Type="nvarchar" MaxLength="10" Nullable="false" />
-    <Property Name="COURSE_TYPE" Type="nvarchar" MaxLength="10" />
+    <Property Name="COURSE_TYPE" Type="nvarchar(max)" Nullable="false" />
     <Property Name="SUBJECT_CREDIT" Type="int" />
     <Property Name="SEMESTER" Type="int" />
+    <Property Name="THEORY_FACULTY" Type="nvarchar" MaxLength="50" />
+    <Property Name="THEORY_CLASS_LOCATION" Type="nvarchar" MaxLength="10" />
+    <Property Name="LAB_FACULTY" Type="nvarchar" MaxLength="50" />
+    <Property Name="LAB_LOCATION" Type="nvarchar" MaxLength="10" />
+    <Property Name="THEORY_HOURS" Type="int" />
+    <Property Name="LAB_HOURS" Type="int" />
   </EntityType>
   <EntityContainer Name="TimeTable_GeneratorModelStoreContainer">
     <EntitySet Name="tbl_faculty" EntityType="Self.tbl_faculty" Schema="dbo" store:Type="Tables" />

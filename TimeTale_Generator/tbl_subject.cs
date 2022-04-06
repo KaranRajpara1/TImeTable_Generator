@@ -11,14 +11,28 @@ namespace TimeTale_Generator
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tbl_subject
     {
+        [Required]
         public int ID { get; set; }
+        [Required]
         public string SUBJECT_NAME { get; set; }
+        [Required]
         public string SUBJECT_CODE { get; set; }
+        [Required]
         public string COURSE_TYPE { get; set; }
+        [Required]
         public Nullable<int> SUBJECT_CREDIT { get; set; }
+        [Required]
         public Nullable<int> SEMESTER { get; set; }
+       
+        public string THEORY_FACULTY { get; set; }
+        public string THEORY_CLASS_LOCATION { get; set; }
+        public string LAB_FACULTY { get; set; }
+        public string LAB_LOCATION { get; set; }
+        public Nullable<int> THEORY_HOURS { get; set; }
+        public Nullable<int> LAB_HOURS { get; set; }
     }
 }

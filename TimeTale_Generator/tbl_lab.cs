@@ -11,13 +11,19 @@ namespace TimeTale_Generator
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tbl_lab
     {
+        [Required]
         public int ID { get; set; }
+        [Required]
         public Nullable<bool> ISLAB { get; set; }
+        [Required]
         public string LAB_TYPE { get; set; }
+        [Required]
         public string ADDITIONAL_DETAILS { get; set; }
+        [Required]
         public string LOCATION { get; set; }
     }
 }

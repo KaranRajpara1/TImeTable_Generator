@@ -1,0 +1,101 @@
+﻿@model IEnumerable<TimeTale_Generator.tbl_subject>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Semester</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SUBJECT_NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SUBJECT_CODE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.COURSE_TYPE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SUBJECT_CREDIT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SEMESTER)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.THEORY_FACULTY)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.THEORY_CLASS_LOCATION)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LAB_FACULTY)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LAB_LOCATION)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.THEORY_HOURS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LAB_HOURS)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SUBJECT_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SUBJECT_CODE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.COURSE_TYPE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SUBJECT_CREDIT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SEMESTER)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.THEORY_FACULTY)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.THEORY_CLASS_LOCATION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LAB_FACULTY)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LAB_LOCATION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.THEORY_HOURS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LAB_HOURS)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

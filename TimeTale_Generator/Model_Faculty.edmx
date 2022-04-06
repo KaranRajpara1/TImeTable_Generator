@@ -32,11 +32,17 @@
             <PropertyRef Name="SUBJECT_CODE" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SUBJECT_NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="SUBJECT_NAME" Type="nvarchar(max)" Nullable="false" />
           <Property Name="SUBJECT_CODE" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="COURSE_TYPE" Type="nvarchar" MaxLength="10" />
+          <Property Name="COURSE_TYPE" Type="nvarchar(max)" Nullable="false" />
           <Property Name="SUBJECT_CREDIT" Type="int" />
           <Property Name="SEMESTER" Type="int" />
+          <Property Name="THEORY_FACULTY" Type="nvarchar" MaxLength="50" />
+          <Property Name="THEORY_CLASS_LOCATION" Type="nvarchar" MaxLength="10" />
+          <Property Name="LAB_FACULTY" Type="nvarchar" MaxLength="50" />
+          <Property Name="LAB_LOCATION" Type="nvarchar" MaxLength="10" />
+          <Property Name="THEORY_HOURS" Type="int" />
+          <Property Name="LAB_HOURS" Type="int" />
         </EntityType>
         <EntityContainer Name="TimeTable_GeneratorModelStoreContainer">
           <EntitySet Name="tbl_faculty" EntityType="Self.tbl_faculty" Schema="dbo" store:Type="Tables" />
@@ -79,11 +85,17 @@
             <PropertyRef Name="SUBJECT_CODE" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SUBJECT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SUBJECT_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SUBJECT_CODE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="COURSE_TYPE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="COURSE_TYPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SUBJECT_CREDIT" Type="Int32" />
           <Property Name="SEMESTER" Type="Int32" />
+          <Property Name="THEORY_FACULTY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="THEORY_CLASS_LOCATION" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="LAB_FACULTY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LAB_LOCATION" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="THEORY_HOURS" Type="Int32" />
+          <Property Name="LAB_HOURS" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -118,6 +130,12 @@
           <EntitySetMapping Name="tbl_subject">
             <EntityTypeMapping TypeName="TimeTable_GeneratorModel.tbl_subject">
               <MappingFragment StoreEntitySet="tbl_subject">
+                <ScalarProperty Name="LAB_HOURS" ColumnName="LAB_HOURS" />
+                <ScalarProperty Name="THEORY_HOURS" ColumnName="THEORY_HOURS" />
+                <ScalarProperty Name="LAB_LOCATION" ColumnName="LAB_LOCATION" />
+                <ScalarProperty Name="LAB_FACULTY" ColumnName="LAB_FACULTY" />
+                <ScalarProperty Name="THEORY_CLASS_LOCATION" ColumnName="THEORY_CLASS_LOCATION" />
+                <ScalarProperty Name="THEORY_FACULTY" ColumnName="THEORY_FACULTY" />
                 <ScalarProperty Name="SEMESTER" ColumnName="SEMESTER" />
                 <ScalarProperty Name="SUBJECT_CREDIT" ColumnName="SUBJECT_CREDIT" />
                 <ScalarProperty Name="COURSE_TYPE" ColumnName="COURSE_TYPE" />

@@ -28,6 +28,12 @@
     <EntitySetMapping Name="tbl_subject">
       <EntityTypeMapping TypeName="TimeTable_GeneratorModel.tbl_subject">
         <MappingFragment StoreEntitySet="tbl_subject">
+          <ScalarProperty Name="LAB_HOURS" ColumnName="LAB_HOURS" />
+          <ScalarProperty Name="THEORY_HOURS" ColumnName="THEORY_HOURS" />
+          <ScalarProperty Name="LAB_LOCATION" ColumnName="LAB_LOCATION" />
+          <ScalarProperty Name="LAB_FACULTY" ColumnName="LAB_FACULTY" />
+          <ScalarProperty Name="THEORY_CLASS_LOCATION" ColumnName="THEORY_CLASS_LOCATION" />
+          <ScalarProperty Name="THEORY_FACULTY" ColumnName="THEORY_FACULTY" />
           <ScalarProperty Name="SEMESTER" ColumnName="SEMESTER" />
           <ScalarProperty Name="SUBJECT_CREDIT" ColumnName="SUBJECT_CREDIT" />
           <ScalarProperty Name="COURSE_TYPE" ColumnName="COURSE_TYPE" />

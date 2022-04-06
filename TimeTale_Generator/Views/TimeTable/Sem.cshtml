@@ -1,0 +1,111 @@
+﻿@model TimeTale_Generator.tbl_subject
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Sem</title>
+</head>
+<body>
+    <div>
+        <h4>tbl_subject</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.SUBJECT_NAME)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SUBJECT_NAME)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SUBJECT_CODE)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SUBJECT_CODE)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.COURSE_TYPE)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.COURSE_TYPE)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SUBJECT_CREDIT)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SUBJECT_CREDIT)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SEMESTER)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SEMESTER)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.THEORY_FACULTY)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.THEORY_FACULTY)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.THEORY_CLASS_LOCATION)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.THEORY_CLASS_LOCATION)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.LAB_FACULTY)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LAB_FACULTY)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.LAB_LOCATION)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LAB_LOCATION)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.THEORY_HOURS)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.THEORY_HOURS)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.LAB_HOURS)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LAB_HOURS)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

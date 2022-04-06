@@ -20,18 +20,15 @@ namespace TimeTale_Generator
         [Required]
         public string NAME { get; set; }
         [Required]
-        [DataType(DataType.EmailAddress, ErrorMessage = "E-mail is not valid")]
         public string EMAIL { get; set; }
         [Required]
-        [DataType(DataType.Password, ErrorMessage = "Password is not valid")]
+        [DataType(DataType.Password)]
         public string PASSWORD { get; set; }
         [Required]
         public string MOBILE_NO { get; set; }
         [Required]
         public string DESIGNATION { get; set; }
         [Required]
-        [StringLength(5)]
         public string ALIAS { get; set; }
     }
 }
-

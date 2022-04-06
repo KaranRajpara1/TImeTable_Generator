@@ -1,0 +1,160 @@
+﻿@model IEnumerable<TimeTale_Generator.tbl_subject>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Content/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <p class="Error"> @ViewBag.ErrMessage </p>
+        <div class="form-group">
+            <label class="control-label col-md-2">Semester</label>
+            <div class="col-md-10">
+                <input type="number" class="form-control" name="Sem" id="Sem" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" />
+            </div>
+        </div>
+    }
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
+
+    @*<div class="form-group" id="sem_dropdown">
+
+            <label class="control-label col-md-2" ">Select Semester</label>
+            <div class="col-md-10">
+                <select class="form-control" id="Sem">
+                    <option value="1">Sem 1</option>
+                    <option value="2">Sem 2</option>
+                    <option value="3">Sem 3</option>
+                    <option value="4">Sem 4</option>
+                    <option value="5">Sem 5</option>
+                    <option value="6">Sem 6</option>
+                    <option value="7">Sem 7</option>
+                    <option value="8">Sem 8</option>
+                </select>
+
+
+            </div>
+        </div>
+        <div id="table_subject">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SUBJECT_NAME)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SUBJECT_CODE)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.COURSE_TYPE)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SUBJECT_CREDIT)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SEMESTER)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.THEORY_FACULTY)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.THEORY_CLASS_LOCATION)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LAB_FACULTY)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LAB_LOCATION)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.THEORY_HOURS)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LAB_HOURS)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SUBJECT_NAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SUBJECT_CODE)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.COURSE_TYPE)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SUBJECT_CREDIT)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SEMESTER)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.THEORY_FACULTY)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.THEORY_CLASS_LOCATION)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LAB_FACULTY)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LAB_LOCATION)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.THEORY_HOURS)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LAB_HOURS)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                //toastr.info('If all three of these are referenced correctly, then this should toast should pop-up.');
+                $("#table_subject").hide();
+                $("#sem_dropdown").show();
+            })
+
+
+            $(function () {
+                $("#Sem").change(function () {
+                    alert($('option:selected', this).text());
+                    //$.post('/TimeTable/Index/6',   // url
+                    //    { Semester: '6' }, // data to be submit
+                    //    function (data, status, jqXHR) {// success callback
+                    //        $('p').append('status: ' + status + ', data: ' + data);
+                    //    });
+                    if ($('option:selected', this).text() == "Sem 2") {
+                        $("#table_subject").show();
+                    }
+                });
+            });
+
+        </script>*@
+</body>
+</html>

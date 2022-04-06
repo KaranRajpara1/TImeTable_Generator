@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Timetable</title>
+</head>
+<body>
+    @Html.BeginForm(FormMethod.Post)
+    {
+        <div class="form-group" id="sem_dropdown">
+
+            <label class="control-label col-md-2" ">Select Semester</label>
+            <div class="col-md-10">
+                <select class="form-control" id="Sem">
+                    <option value="1">Sem 1</option>
+                    <option value="2">Sem 2</option>
+                    <option value="3">Sem 3</option>
+                    <option value="4">Sem 4</option>
+                    <option value="5">Sem 5</option>
+                    <option value="6">Sem 6</option>
+                    <option value="7">Sem 7</option>
+                    <option value="8">Sem 8</option>
+                </select>
+
+
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Generate" />
+        </div>
+    }
+    </body>
+</html>
